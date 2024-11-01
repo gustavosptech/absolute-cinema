@@ -34,3 +34,7 @@ header ul li a{
 a:hover {
     color: antiquewhite;
 }
+
+.searchMovie input {
+    width: 100%;
+}
