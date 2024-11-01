@@ -1,0 +1,36 @@
+header {
+    width: 100%;
+    background-color: #ffae0000;
+    position: absolute;
+    z-index: 101;
+    color: white;
+}
+
+header ul {
+    list-style: none;
+    z-index: 101;
+}
+
+nav {
+    width: 95%;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px;
+    margin-left: 50px;
+}
+
+header ul li a{
+    color: white;
+    text-decoration: none;
+    padding: 0 1rem;
+    text-transform: uppercase;
+    font-weight: 300;
+    font-size: 0.83rem;
+}
+
+a:hover {
+    color: antiquewhite;
+}
