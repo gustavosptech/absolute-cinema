@@ -1,9 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;700&display=swap');
+
 header {
     width: 100%;
     background-color: #ffae0000;
-    position: absolute;
+    position: fixed;
     z-index: 101;
     color: white;
+}
+
+.nav-items {
+    display: flex;
+    flex-direction: row;
 }
 
 header ul {
@@ -35,6 +43,28 @@ a:hover {
     color: antiquewhite;
 }
 
+.searchMovie a {
+    text-decoration: none;
+    color: white;
+}
+
 .searchMovie input {
-    width: 100%;
+    width: 400px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.button-search {
+    width: 80px;
+    height: 30px;
+    border: 1px solid #000304;
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    font-family: Sora;
+}
+
+.button-search:hover{
+    background-color: rgb(159, 1, 1);
+    cursor: pointer;
 }

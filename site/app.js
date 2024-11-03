@@ -1,7 +1,7 @@
-/* Efeito de Parallax pelo movimento do mouse */
+/* Prallax where mouse move */
 const parallax_el = document.querySelectorAll('.parallax');
 
-let xValue = 0, yValue = 0;
+var xValue = 0, yValue = 0;
 
 function update() {
     parallax_el.forEach(el => {
@@ -19,7 +19,7 @@ window.addEventListener("mousemove", (e) => {
     update();
 });
 
-/* Animação GSAP Inicial */
+/* Animation from GSAP - initial */
 Array.from(parallax_el)
     .filter(el => !el.classList.contains("banner"))
     .forEach(el => {
@@ -34,9 +34,9 @@ Array.from(parallax_el)
 
 
 /* Effect by scrolling */
-let listBg = document.querySelectorAll('.bg');
-let listTab = document.querySelectorAll('.tab, .how-it-works');
-let titleBanner = document.querySelector('.banner h1');
+var listBg = document.querySelectorAll('.bg');
+var listTab = document.querySelectorAll('.tab, .how-it-works');
+var titleBanner = document.querySelector('.banner h1');
 
 window.addEventListener("scroll", () => {
     let top = window.scrollY;
