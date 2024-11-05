@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;700&display=swap');
 
 body {
     margin: 0;
-    background-color: #210002;
+    background-color: #000304;
     font-family: Sora;
     font-size: 24px;
 }
@@ -10,37 +11,37 @@ body {
 .video-background {
     position: relative;
     width: 100%;
-    height: 50vh;
+    height: 100vh;
     overflow: hidden;
 }
 
-.video-background img {
+.video-background video {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100vh;
     z-index: -1;
     object-fit: cover;
 }
 
-.conteudo {
-    position: absolute;
-    bottom: 0;
-    height: auto;
+.content {
+    margin-top: 50vh;
+    height: 50vh;
     width: 100%;
     z-index: 1;
     color: white;
-    background-color: #210002;
-    text-align: left;
-    padding: 20px;
-    overflow: hidden;
+    background-color: #000304;
     background: linear-gradient(
         to bottom, 
-        #21000200,
-        #210002
+        #00030400,
+        #000304
     );
+
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: start;
+}
+
+.content .text-content {
+    padding-left: 50px;
 }
