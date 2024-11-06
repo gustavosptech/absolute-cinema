@@ -31,8 +31,9 @@ body {
     color: white;
     background-color: #000304;
     background: linear-gradient(
-        to bottom, 
+        to bottom,
         #00030400,
+        40%,
         #000304
     );
 
