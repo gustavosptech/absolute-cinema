@@ -31,8 +31,6 @@ Array.from(parallax_el)
     },);
 });
 
-
-
 /* Effect by scrolling */
 var listBg = document.querySelectorAll('.bg');
 var listTab = document.querySelectorAll('.tab, .how-it-works');
