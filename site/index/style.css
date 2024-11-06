@@ -12,6 +12,9 @@ body{
     position: relative;
     overflow: hidden;
     background-color: #ffad00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .banner .bg{
     position: absolute;
@@ -60,7 +63,7 @@ body{
 .banner .bg-8{
     z-index: 8;
     background-image: url('img/7.png');
-    top: 10%;
+    margin-top: 10%;
 }
 .banner .bg-9{
     z-index: 9;
@@ -75,6 +78,7 @@ body{
     font-size: 11rem;
     font-family: 'Pacifico', cursive;
     color: white;
+    padding-bottom: 150px;
 }
 
 .vignette {

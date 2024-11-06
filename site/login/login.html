@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../index/style.css">
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="../index/header.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">
+                <h1>Absolute Cinema</h1>
+            </a>
+            <div id="searchMovie" class="searchMovie">
+                <input type="text" id="input_title" placeholder="Search for your favourite movies">
+                <button onclick="stringInput()" class="button-search">
+                    <i class="icon fa-solid fa-magnifying-glass"></i>
+                    Search
+                </button>
+            </div>
+            <ul class="nav-items">
+                <li><a href="../index/index.html">Home Page</a></li>
+                <li><a href="../signup/signup.html">Sign up</a></li>
+                <li><a href="../about/about.html">About Me</a></li>
+            </ul>
+        </nav>
+    </header>  
+    
+    <div class="banner">
+        <div class="vignette"></div>
+        <div class="bg bg-1 parallax" data-distance="200" data-speedx="0.6"></div>
+        <div class="bg bg-9 parallax" data-distance="300" data-speedx="0.3"></div>
+        <div class="bg bg-2 parallax" data-distance="400" data-speedx="0.3"></div>
+        <div class="bg bg-3 parallax" data-distance="500" data-speedx="0.3"></div>
+        <div class="bg bg-4 parallax" data-distance="600" data-speedx="0.3"></div>
+        <div class="bg bg-5 parallax" data-distance="800" data-speedx="0.3"></div>
+        <div class="bg bg-6 parallax" data-distance="950" data-speedx="0.3"></div>
+        <div class="bg bg-7 parallax" data-distance="1000" data-speedx="0.6"></div>
+        <div class="bg bg-8 parallax" data-distance="1500" data-speedx="0.6"></div>
+        <div class="login-container">
+            <form action="/login" method="POST">
+                <h2>Log In</h2>
+                <h4>E-mail</h4>
+                <input type="email" name="E-mail" id="input_email" required>
+                <h4>Password</h4>
+                <input type="passwd" name="Password" id="input_password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+    <script src="../index/app.js"></script>
+</body>
+</html>
