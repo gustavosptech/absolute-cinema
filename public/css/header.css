@@ -83,3 +83,13 @@ a:hover {
     background-color: #ad7f15;
     cursor: pointer;
 }
+
+@media screen and (max-width: 950px){
+    .nav-items {
+        flex-direction: column;
+    }
+}
+
+@media screen and (min-width: 950px) and (max-width: 1300px) {
+    
+}

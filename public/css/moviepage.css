@@ -18,7 +18,7 @@ body {
 
 .ranking {
     display: flex;
-    flex-direction: row;             
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     width: 35%;
@@ -27,9 +27,9 @@ body {
 
 .content {
     display: flex;
-    flex-direction: column;             
+    flex-direction: column;
     justify-content: center;
-    align-items: center;     
+    align-items: center;
 }
 
 .content .loading img {
@@ -52,10 +52,37 @@ body {
     transition: 0.3s;
 }
 
-.about-movie{
+.about-movie {
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-left: 50px;
     font-size: 24px;
+}
+
+.about-movie h4 {
+    margin-bottom: 0;
+}
+
+.avaliation {
+    border: none;
+    outline: none;
+    font-family: Sora;
+    font-size: 15px;
+    height: 30px;
+    width: 26%;
+    border-radius: 5px;
+    background-color: rgba(74, 74, 74, 0.579);
+    backdrop-filter: blur(8px);
+    color: white;
+    padding-left: 20px;
+}
+
+
+
+option {
+    font-family: Sora;
+    background-color: #000304;
+    color: white;
+    border: none;
 }

@@ -45,18 +45,32 @@ function searchMovie(title) {
                         </div>
                         <div class="about-movie">
                             <div class="movie-title">Title: ${data.Title}</div>
+                            <div class="movie-title">Genre: ${data.Genre}</div>
                             <div class="movie-year">Year: ${data.Year}</div>
                             <div class="movie-plot">Plot: ${data.Plot}</div>
                             <div class="movie-writers">Writer: ${data.Writer}</div>
                             <div class="movie-director">Director: ${data.Director}</div>
                             <div class="movie-actors">Actors: ${data.Actors}</div>
                             <div class="movie-awards">Awards: ${data.Awards}</div>
+                            <h4> Do your rate here: </h4>
+                            <select class="avaliation" name="avaliation" id="avaliation">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                            </select>
                         </div>
                     </div>
                 `;
 
                 title_page.innerHTML = `${data.Title}`;
-                
+
                 rotten_tomatoes.innerHTML += rottenTomatoesValue
             } else {
                 result.innerHTML = '<div class="movie-not-found">Não encontrado</div>';

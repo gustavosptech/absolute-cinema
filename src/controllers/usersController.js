@@ -19,7 +19,7 @@ function autenticar(req, res) {
                     email: resultadoAutenticar[0].email
                 });
             } else {
-                res.status(403).send("Email e/ou senha inválido(s)");
+                res.status(403).send("Email or password is not valid");
             }
         })
         .catch((erro) => {
@@ -35,11 +35,11 @@ function cadastrar(req, res) {
     const senha = req.body.senhaServer;
 
     if (!nome) {
-        return res.status(400).send("Nome está indefinido!");
+        return res.status(400).send("Name is undefined!");
     } else if (!email) {
-        return res.status(400).send("Email está indefinido!");
+        return res.status(400).send("Email is undefined!");
     } else if (!senha) {
-        return res.status(400).send("Senha está indefinida!");
+        return res.status(400).send("Password is undefined!");
     } else {
         // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
         usersModel.cadastrar(nome, email, senha)
@@ -51,7 +51,7 @@ function cadastrar(req, res) {
                 function (erro) {
                     console.log(erro);
                     console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        "\nError: ",
                         erro.sqlMessage
                     );
                     res.status(500).json(erro.sqlMessage);
