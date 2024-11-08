@@ -37,6 +37,13 @@ function searchMovie(title) {
                 const rottenTomatoesValue = rottenTomatoesRating ? rottenTomatoesRating.Value : 'N/A';
 
                 result.innerHTML = `
+                    <div class="banner">
+                        <div class="ranking">
+                            <div class="absolute-ranking" id="absolute_ranking">Absolute Ranking⭐:</div>
+                            <div class="rotten-tomatoes" id="rotten_tomatoes">Rotten Tomatoes🍅:</div>
+                        </div>
+                        <div class="content" id="result"></div>
+                    </div>
                     <div class="movie-details">
                         <div class="movie-poster">
                             <a href="https://www.youtube.com/results?search_query=${data.Title}">
@@ -78,7 +85,7 @@ function searchMovie(title) {
         })
         .catch(error => {
             result.innerHTML = `<div class="movie-error">Erro: ${error}</div>`;
-            title_page.innerHTML = 'Erro';
+            title_page.innerHTML = '';
         });
 }
 
@@ -89,7 +96,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (title) {
         searchMovie(title);
     } else {
-        document.getElementById('result').innerHTML = 'No film was found.';
-        title_page.innerHTML = 'Error';
+        title_page.innerHTML = 'Movie Page';
     }
 });

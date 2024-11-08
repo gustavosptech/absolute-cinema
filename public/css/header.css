@@ -84,6 +84,11 @@ a:hover {
     cursor: pointer;
 }
 
+.exit {
+    display: none;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 950px){
     .nav-items {
         flex-direction: column;

@@ -3,13 +3,28 @@ function validarSessao() {
     var email = sessionStorage.EMAIL_USUARIO;
     var nome = sessionStorage.NOME_USUARIO;
 
-    var b_usuario = document.getElementById("b_usuario");
-
     if (email != null && nome != null) {
-        b_usuario.innerHTML = nome;
-    } else {
-        window.location = "../login.html";
+        return true
     }
+
+    return false
+}
+
+function exit(){
+
+    sessionStorage.clear()
+    nav_login.style.display = 'block';
+    nav_register.style.display = 'block';
+    nav_exit.style.display = 'none';
+
+    window.location = '../index.html'
+
+}
+
+if (validarSessao()) {
+    nav_login.style.display = 'none';
+    nav_register.style.display = 'none';
+    nav_exit.style.display = 'block';
 }
 
 function limparSessao() {

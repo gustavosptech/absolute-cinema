@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentary</title>
-    <link rel="stylesheet" href="categories.css">
-    <link rel="stylesheet" href="../index/header.css">
+    <link rel="stylesheet" href="css/categories.css">
+    <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
     <header>
         <nav>
@@ -22,21 +24,26 @@
                 </button>
             </div>
             <ul class="nav-items">
-                <li><a href="../login/login.html">Login</a></li>
-                <li><a href="../signup/signup.html">Register</a></li>
-                <li><a href="../about/about.html">About Me</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li id="nav_login"><a href="login.html">Login</a></li>
+                <li id="nav_register"><a href="signup.html">Register</a></li>
+                <li style="display: none;" class="exit" id="nav_exit"><a onclick="exit()">Exit <i class="fas fa-sign-out-alt"></i>
+                </a></li>
             </ul>
         </nav>
     </header>
     <div class="video-background">
-        <video autoplay muted loop src="img-categories/tiger.webm" ></video>
-         <div class="content">
-             <div class="text-content">
-                 <h1>Documentary</h1>
-                 <p>Real stories, inspiring journeys, and powerful insights into our world and beyond, all captured in stunning detail.</p>
-             </div>
-         </div>
-     </div>
-     <script src="../moviePage/searchMovie.js"></script>
+        <video autoplay muted loop src="assets/img/tiger.webm"></video>
+        <div class="content">
+            <div class="text-content">
+                <h1>Documentary</h1>
+                <p>Real stories, inspiring journeys, and powerful insights into our world and beyond, all captured in
+                    stunning detail.</p>
+            </div>
+        </div>
+    </div>
+    <script src="../moviePage/searchMovie.js"></script>
+    <script src="js/sessao.js"></script>
 </body>
+
 </html>

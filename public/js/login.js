@@ -1,3 +1,7 @@
+if (sessionStorage.NOME_USUARIO != null) {
+    window.location = '../index.html'
+}
+
 function entrar() {
     // aguardar();
 
@@ -40,9 +44,8 @@ function entrar() {
                 sessionStorage.ID_USUARIO = json.id;
 
                 setTimeout(() => {
-                    window.location = "./index.html";
+                    window.location = "./moviepage.html";
                 }, 1000); // apenas para exibir o loading
-
             });
 
         } else {

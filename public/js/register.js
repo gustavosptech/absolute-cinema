@@ -1,5 +1,9 @@
 var validador = true
 
+if (sessionStorage.NOME_USUARIO != null) {
+    window.location = '../index.html'
+}
+
 function cadastrar() {
     // Recupera os valores dos campos
     var nomeVar = input_name.value;
@@ -59,8 +63,7 @@ debugger
                 container.innerHTML = "<h4>Success</h4>";
                 
                 window.location = "/login.html";
-    
-                
+
                 // limparFormulario(); 
                 // finalizarAguardar();
             } else {
