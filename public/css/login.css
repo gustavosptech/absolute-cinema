@@ -8,7 +8,7 @@ body {
     font-size: 15px;
 }  
 
-.login-container {  
+.cadastro-container, .login-container {  
     display: flex;  
     flex-direction: column;  
     justify-content: center;   
@@ -25,16 +25,23 @@ body {
     border-radius: 10px;
 }
 
+.cadastro-container {
+    height: 60vh;
+}
+
+.cadastro-container h2,
 .login-container h2 {
     font-size: 24px;
     display: flex;
     justify-content: center;
 }
 
+.cadastro-container h4,
 .login-container h4 {  
     margin: 10px 0;  
 }  
 
+.cadastro-container input,
 .login-container input {  
     width: 25vw;
     height: 10px;
@@ -46,11 +53,12 @@ body {
     justify-content: center;
 }  
 
+.cadastro-container button,
 .login-container button {  
     width: 100%; 
     text-decoration: none;  
     margin-top: 20px;  
-    background-color: red;  
+    background-color: #d79f17;  
     color: white;   
     padding: 10px;  
     border: none;  
@@ -60,6 +68,7 @@ body {
     justify-content: center;
 }  
 
+.cadastro-container button:hover,
 .login-container button:hover {  
-    background-color: rgb(159, 1, 1);   
+    background-color: #ad7f15;   
 }  

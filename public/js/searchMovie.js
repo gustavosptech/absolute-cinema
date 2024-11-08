@@ -4,7 +4,7 @@ function stringInput() {
     if (title == "") {
         return alert("Write something to search.");
     } else {
-        window.location.href = `file:///C:/Users/go449/OneDrive/Documentos/sptech/projeto_individual/absolute-cinema/public/moviepage.html?title=${encodeURIComponent(title)}`;
+        window.location.href = `/moviepage.html?title=${encodeURIComponent(title)}`;
     }
 }
 

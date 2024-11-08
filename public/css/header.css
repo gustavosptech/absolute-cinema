@@ -66,19 +66,20 @@ a:hover {
     width: 80%;
     height: 4vh;
     border-radius: 5px;
+    border: 1px solid white;
 }
 
 .button-search {
     width: 80px;
     height: 30px;
-    border: 1px solid #000304;
+    border: none;
     border-radius: 5px;
-    background-color: red;
+    background-color: #d79f17;
     color: white;
     font-family: Sora;
 }
 
 .button-search:hover{
-    background-color: rgb(159, 1, 1);
+    background-color: #ad7f15;
     cursor: pointer;
 }

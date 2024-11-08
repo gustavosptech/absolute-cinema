@@ -43,6 +43,15 @@ body{
     border-radius: 10px;
     padding: 2%;
     box-shadow: 5px 20px 40px 0px rgba(0, 0, 0, 0.7);
+    text-align: justify;
+}
+
+.card2 {
+    text-align-last: right;
+}
+
+.card1 {
+    text-align-last: left;
 }
 
 .hidden {

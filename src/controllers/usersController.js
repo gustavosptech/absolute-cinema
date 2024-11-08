@@ -1,4 +1,4 @@
-var usuarioModel = require("../models/usersModel");
+var usersModel = require("../models/usersModel");
 
 function autenticar(req, res) {
     const email = req.body.emailServer;
@@ -10,7 +10,7 @@ function autenticar(req, res) {
         return res.status(400).send("Password is undefined!");
     }
 
-    usuarioModel.autenticar(email, senha)
+    usersModel.autenticar(email, senha)
         .then((resultadoAutenticar) => {
             if (resultadoAutenticar.length === 1) {
                 res.json({
@@ -29,6 +29,7 @@ function autenticar(req, res) {
 }
 
 function cadastrar(req, res) {
+    debugger
     const nome = req.body.nomeServer;
     const email = req.body.emailServer;
     const senha = req.body.senhaServer;
@@ -39,27 +40,24 @@ function cadastrar(req, res) {
         return res.status(400).send("Email está indefinido!");
     } else if (!senha) {
         return res.status(400).send("Senha está indefinida!");
-    }
-
-    // Verifica se o usuário já existe pelo email
-    usuarioModel.buscarPorEmail(email).then((resultado) => {
-        if (resultado.length > 0) {
-            return res.status(409).send("Usuário já existe!");
-        } else {
-            // Se não existir, cadastra o usuário
-            usuarioModel.cadastrar(nome, email, senha)
-                .then((resultadoCadastro) => {
-                    res.status(201).json(resultadoCadastro);
-                })
-                .catch((erro) => {
-                    console.error("Erro ao cadastrar usuário:", erro.sqlMessage);
+    } else {
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usersModel.cadastrar(nome, email, senha)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
                     res.status(500).json(erro.sqlMessage);
-                });
-        }
-    }).catch((erro) => {
-        console.error("Erro ao verificar usuário:", erro.sqlMessage);
-        res.status(500).json(erro.sqlMessage);
-    });
+                }
+            );
+    }
 }
 
 module.exports = {

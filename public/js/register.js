@@ -1,3 +1,5 @@
+var validador = true
+
 function cadastrar() {
     // Recupera os valores dos campos
     var nomeVar = input_name.value;
@@ -13,62 +15,63 @@ function cadastrar() {
     ) {
         cardErro.style.display = "block";
         alert('Fill in all fields');
-        return false; 
+        validador = false; 
     }
 
     if (nomeVar.length < 2) {
         alert("The name must have more than one character");
-        return false;
+        validador = false;
     }
 
     if (emailVar.indexOf('@') == -1 || emailVar.indexOf('.') == -1) {
         alert("The email must contain '@' and '.'");
-        return false;
+        validador = false;
     }
 
     if (senhaVar.length <= 6) {
         alert("Password must be longer than 6 characters");
-        return false;
+        validador = false;
     }
 
     if (senhaVar != confirmacaoSenhaVar) {
         alert("Password confirmation must be the same");
-        return false;
+        validador = false;
     }
-
-    // Envia os dados via fetch para o backend
-    fetch("/usuarios/cadastrar", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-            nomeServer: nomeVar,
-            emailServer: emailVar,
-            senhaServer: senhaVar
-        }),
-    })
-    .then(function (resposta) {
-        console.log("resposta: ", resposta);
-
-        if (resposta.ok) {
-            cardErro.style.display = "block";
-            container.innerHTML = "Success";
-
-            setTimeout(() => {
-                window.location = "login.html";
-            }, 2000);
-
-            limparFormulario(); 
-            finalizarAguardar();
-        } else {
-            throw new Error("Cadastro falhou");
-        }
-    })
-    .catch(function (erro) {
-        console.log("#ERRO: ", erro);
-        finalizarAguardar(); 
-    });
-
-    return false; 
+debugger
+    if (validador){
+        // Envia os dados via fetch para o backend
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                nomeServer: nomeVar,
+                emailServer: emailVar,
+                senhaServer: senhaVar
+            }),
+        })
+        .then(function (resposta) {
+            console.log("resposta: ", resposta);
+            debugger
+            if (resposta.ok) {
+                container.style.display = "block";
+                container.innerHTML = "<h4>Success</h4>";
+                
+                window.location = "/login.html";
+    
+                
+                // limparFormulario(); 
+                // finalizarAguardar();
+            } else {
+                throw new Error("Cadastro falhou");
+            }
+        })
+        .catch(function (erro) {
+            console.log("#ERRO: ", erro);
+            finalizarAguardar(); 
+        });
+    
+        return false; 
+    }
 }
