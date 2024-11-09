@@ -1,4 +1,4 @@
-var validador = true
+
 
 if (sessionStorage.NOME_USUARIO != null) {
     window.location = '../index.html'
@@ -19,49 +19,47 @@ function cadastrar() {
     ) {
         cardErro.style.display = "block";
         alert('Fill in all fields');
-        validador = false; 
+        return
     }
 
     if (nomeVar.length < 2) {
         alert("The name must have more than one character");
-        validador = false;
+        return
     }
 
     if (emailVar.indexOf('@') == -1 || emailVar.indexOf('.') == -1) {
         alert("The email must contain '@' and '.'");
-        validador = false;
+        return
     }
 
     if (senhaVar.length <= 6) {
         alert("Password must be longer than 6 characters");
-        validador = false;
+        return
     }
 
     if (senhaVar != confirmacaoSenhaVar) {
         alert("Password confirmation must be the same");
-        validador = false;
+        return
     }
-debugger
-    if (validador){
-        // Envia os dados via fetch para o backend
-        fetch("/usuarios/cadastrar", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                nomeServer: nomeVar,
-                emailServer: emailVar,
-                senhaServer: senhaVar
-            }),
-        })
+    // Envia os dados via fetch para o backend
+    fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            nomeServer: nomeVar,
+            emailServer: emailVar,
+            senhaServer: senhaVar
+        }),
+    })
         .then(function (resposta) {
             console.log("resposta: ", resposta);
             debugger
             if (resposta.ok) {
                 container.style.display = "block";
                 container.innerHTML = "<h4>Success</h4>";
-                
+
                 window.location = "/login.html";
 
                 // limparFormulario(); 
@@ -72,9 +70,8 @@ debugger
         })
         .catch(function (erro) {
             console.log("#ERRO: ", erro);
-            finalizarAguardar(); 
+            finalizarAguardar();
         });
-    
-        return false; 
-    }
+
+    return false;
 }

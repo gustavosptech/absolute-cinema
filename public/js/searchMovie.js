@@ -33,17 +33,12 @@ function searchMovie(title) {
         .then(data => {
             if (data.Response === 'True') {
 
+                ranking.style.display = 'block'
+
                 const rottenTomatoesRating = data.Ratings.find(rating => rating.Source === 'Rotten Tomatoes');
                 const rottenTomatoesValue = rottenTomatoesRating ? rottenTomatoesRating.Value : 'N/A';
 
                 result.innerHTML = `
-                    <div class="banner">
-                        <div class="ranking">
-                            <div class="absolute-ranking" id="absolute_ranking">Absolute Ranking⭐:</div>
-                            <div class="rotten-tomatoes" id="rotten_tomatoes">Rotten Tomatoes🍅:</div>
-                        </div>
-                        <div class="content" id="result"></div>
-                    </div>
                     <div class="movie-details">
                         <div class="movie-poster">
                             <a href="https://www.youtube.com/results?search_query=${data.Title}">
