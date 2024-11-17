@@ -38,18 +38,42 @@ body {
     height: 50px;
 }
 
+.submit-rating {
+    display: flex;
+    flex-direction: column;
+}
+
+.content button {
+    width: 26%;
+    background-color: #ffad00;
+    padding: 6px;
+    margin-top: 5px;
+    border: 1px solid #000304;
+    border-radius: 5px;
+    color: white;
+    font-family: Sora;
+    font-size: 24px;
+    box-shadow: 5px 5px 10px 0px black;
+}
+
+.content button:hover {
+    cursor: pointer;
+    background-color: #ad7f15;
+}
+
 .movie-details {
     display: flex;
     flex-direction: row;
 }
 
 .movie-poster {
+    transform: scale(1.1);
     border-radius: 10px;
     transition: 0.3s;
 }
 
 .movie-poster:hover {
-    transform: scale(1.1);
+    transform: scale(1.2);
     transition: 0.3s;
 }
 
@@ -65,21 +89,24 @@ body {
     margin-bottom: 0;
 }
 
+
+
 .avaliation {
     border: none;
     outline: none;
     font-family: Sora;
     font-size: 15px;
-    height: 30px;
+    padding: 10px 20px;
     width: 26%;
     border-radius: 5px;
     background-color: rgba(74, 74, 74, 0.579);
     backdrop-filter: blur(8px);
     color: white;
-    padding-left: 20px;
 }
 
-
+.avaliation:hover {
+    cursor: pointer;
+}
 
 option {
     font-family: Sora;

@@ -9,7 +9,6 @@ function entrar() {
     var senhaVar = input_password.value;
 
     if (emailVar == "" || senhaVar == "") {
-        cardErro.style.display = "block"
         alert("Fill in all fields");
         // finalizarAguardar();
         return false;
@@ -54,11 +53,12 @@ function entrar() {
 
             resposta.text().then(texto => {
                 console.error(texto);
-                finalizarAguardar(texto);
+                alert(texto)
             });
         }
 
     }).catch(function (erro) {
+        alert(erro)
         console.log(erro);
     })
 
