@@ -12,11 +12,16 @@ function autenticar(req, res) {
 
     usersModel.autenticar(email, senha)
         .then((resultadoAutenticar) => {
-            if (resultadoAutenticar.length === 1) {
+            if (resultadoAutenticar.usuario) {
                 res.json({
-                    id: resultadoAutenticar[0].id,
-                    nome: resultadoAutenticar[0].nome,
-                    email: resultadoAutenticar[0].email
+                    id: resultadoAutenticar.usuario.id,
+                    nome: resultadoAutenticar.usuario.nome,
+                    email: resultadoAutenticar.usuario.email,
+                    // Adicionando campos de endereço ao JSON de resposta
+                    idEndereco: resultadoAutenticar.endereco ? resultadoAutenticar.endereco.idEndereco : null,
+                    pais: resultadoAutenticar.endereco ? resultadoAutenticar.endereco.pais : null,
+                    estado: resultadoAutenticar.endereco ? resultadoAutenticar.endereco.estado : null,
+                    cidade: resultadoAutenticar.endereco ? resultadoAutenticar.endereco.cidade : null
                 });
             } else {
                 res.status(403).send("Email or password is not valid");
@@ -28,8 +33,8 @@ function autenticar(req, res) {
         });
 }
 
+
 function cadastrar(req, res) {
-    debugger
     const nome = req.body.nomeServer;
     const email = req.body.emailServer;
     const senha = req.body.senhaServer;
@@ -60,7 +65,41 @@ function cadastrar(req, res) {
     }
 }
 
+function endereco(req, res) {
+    const pais = req.body.paisServer;
+    const estado = req.body.estadoServer;
+    const cidade = req.body.cidadeServer;
+    const idUsuario = req.body.idUsuarioServer;
+
+    if (!pais) {
+        return res.status(400).send("Country is undefined!");
+    } else if (!estado) {
+        return res.status(400).send("State is undefined!");
+    } else if (!cidade) {
+        return res.status(400).send("City is undefined!");
+    } else if (!idUsuario) {
+        return res.status(400).send("User id is undefined!");
+    }
+
+    usersModel.endereco(pais, estado, cidade, idUsuario)
+        .then(
+            function (resultado) {
+                res.json(resultado);
+            }
+        ).catch(
+            function (erro) {
+                console.log(erro);
+                console.log(
+                    "\nError: ",
+                    erro.sqlMessage
+                );
+                res.status(500).json(erro.sqlMessage);
+            }
+        );
+}
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    endereco
 }

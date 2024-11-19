@@ -5,12 +5,15 @@ var usuarioController = require("../controllers/usersController");
 
 //Recebendo os dados do html e direcionando para a função cadastrar de usuarioController.js
 router.post("/cadastrar", function (req, res) {
-    debugger
     usuarioController.cadastrar(req, res);
-})
+});
 
 router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
+});
+
+router.post("/endereco", function(req, res) {
+    usuarioController.endereco(req, res);
 });
 
 module.exports = router;

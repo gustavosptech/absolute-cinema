@@ -42,11 +42,16 @@ function entrar() {
                 sessionStorage.NOME_USUARIO = json.nome;
                 sessionStorage.ID_USUARIO = json.id;
 
+                // Adicionando informações de endereço ao sessionStorage
+                sessionStorage.ID_ENDERECO = json.idEndereco;
+                sessionStorage.PAIS_USUARIO = json.pais;
+                sessionStorage.ESTADO_USUARIO = json.estado;
+                sessionStorage.CIDADE_USUARIO = json.cidade;
+
                 setTimeout(() => {
-                    window.location = "./moviepage.html";
+                    window.location = "./dashboard.html";
                 }, 1000); // apenas para exibir o loading
             });
-
         } else {
 
             console.log("There was an error trying to log in!");
