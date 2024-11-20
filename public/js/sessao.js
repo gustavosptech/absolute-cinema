@@ -18,7 +18,7 @@ function exit(){
     nav_exit.style.display = 'none';
     nav_dash.style.display = 'none';
 
-    window.location = '../index.html'
+    window.location = 'index.html'
 
 }
 

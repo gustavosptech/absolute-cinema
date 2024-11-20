@@ -3,14 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/dashboard.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    
+    <header>
+        <nav>
+            <a href="index.html">
+                <h1>Absolute Cinema</h1>
+            </a>
+            <div id="searchMovie" class="searchMovie">
+                <input type="text" id="input_title" placeholder="Search for your favourite movies">
+                <button onclick="stringInput()" class="button-search">
+                    <i class="icon fa-solid fa-magnifying-glass"></i>
+                    Search
+                </button>
+            </div>
+            <ul class="nav-items">
+                <li><a href="about.html">About Me</a></li>
+                <li id="nav_login"><a href="login.html">Login</a></li>
+                <li id="nav_register"><a href="signup.html">Register</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li class="exit" id="nav_exit"><a onclick="exit()">Exit <i class="fas fa-sign-out-alt"></i>
+                </a></li>
+            </ul>
+        </nav>
+    </header>  
+
+    <div class="banner">
+        <h1>Relatório Geral</h1>
+        <div class="cards">
+            <div class="card">Mais Avaliado: </div>
+            <div class="card">Melhor Avaliado: </div>
+            <div class="card">Região que mais avaliou: </div>
+        </div>
+        <div class="graficoGeneros" id="graficoGeneros"><canvas id="myChart"></canvas></div>
+    </div>
+
 </body>
 </html>
 
 <script src="js/dashboard.js"></script>
+<script src="js/sessao.js"></script>
