@@ -125,10 +125,48 @@ async function fetchAvaliacoesPorGenero() {
     }
 };
 
+async function maisAvaliados(req, res) {
+    try {
+        const query = `
+        SELECT f.nome AS Filme, COUNT(a.idAvaliacao) AS TotalAvaliacoes
+        FROM filme f
+        JOIN avaliacao a ON f.idFilme = a.fkFilme
+        GROUP BY f.idFilme
+        ORDER BY TotalAvaliacoes DESC
+        LIMIT 1;
+        `
+        const filmeMaisAvaliado = await database.executar(query);
+        return filmeMaisAvaliado
+    } catch (error) {
+        console.error('Erro ao buscar no modelo:', error);
+        throw error;
+    }
+};
+
+async function MelhorAvaliado(req, res) {
+    try {
+        const query = `
+        SELECT f.nome AS Filme, COUNT(a.idAvaliacao) AS TotalAvaliacoes, AVG(a.avaliacao) AS MediaNotas
+        FROM filme f
+        JOIN avaliacao a ON f.idFilme = a.fkFilme
+        GROUP BY f.idFilme
+        ORDER BY TotalAvaliacoes DESC, MediaNotas DESC
+        LIMIT 1;
+        `
+        const filmeMelhorAvaliado = await database.executar(query);
+        return filmeMelhorAvaliado
+    } catch (error) {
+        console.error('Erro ao buscar no modelo:', error);
+        throw error;
+    }
+};
+
 
 module.exports = {
     filme,
     nota,
     media,
-    fetchAvaliacoesPorGenero
+    fetchAvaliacoesPorGenero,
+    maisAvaliados,
+    MelhorAvaliado
 };

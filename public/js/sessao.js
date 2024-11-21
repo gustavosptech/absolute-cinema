@@ -13,12 +13,13 @@ function validarSessao() {
 function exit(){
 
     sessionStorage.clear()
+    location.reload();
     nav_login.style.display = 'block';
     nav_register.style.display = 'block';
     nav_exit.style.display = 'none';
     nav_dash.style.display = 'none';
 
-    window.location = 'index.html'
+    window.location = './index.html'
 
 }
 
@@ -31,7 +32,7 @@ if (validarSessao()) {
 
 function limparSessao() {
     sessionStorage.clear();
-    window.location = "../login.html";
+    window.location = "./login.html";
 }
 
 // carregamento (loading)
