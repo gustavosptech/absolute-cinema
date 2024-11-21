@@ -17,4 +17,8 @@ router.post("/media", function (req, res) {
     avaliacaoController.media(req, res);
 });
 
+router.get("/genero", function (req, res) {
+    avaliacaoController.getAvaliacoesPorGenero(req, res);
+});
+
 module.exports = router;

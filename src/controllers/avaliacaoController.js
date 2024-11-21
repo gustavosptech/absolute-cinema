@@ -81,8 +81,19 @@ function media(req, res) {
         );
 }
 
+async function getAvaliacoesPorGenero(req, res) {
+    try {
+        const data = await avaliacaoModel.fetchAvaliacoesPorGenero();
+        res.json(data); // Retorna os dados como JSON para o frontend
+    } catch (error) {
+        console.error('Erro no controller de avaliações:', error);
+        res.status(500).json({ error: 'Erro ao buscar dados de avaliações por gênero' });
+    }
+};
+
 module.exports = {
     filme,
     nota,
-    media
+    media,
+    getAvaliacoesPorGenero
 }

@@ -99,10 +99,36 @@ async function media(nomeFilme) {
     }
 }
 
+async function fetchAvaliacoesPorGenero() {
+    try {
+        const query = `
+        SELECT 
+            f.genero AS genero, 
+            COUNT(a.idAvaliacao) AS qtd_avaliacoes
+        FROM 
+            filme f
+        LEFT JOIN 
+            avaliacao a ON f.idFilme = a.fkFilme
+        WHERE 
+            a.avaliacao >= 8 
+        GROUP BY 
+            f.genero
+        ORDER BY 
+            qtd_avaliacoes DESC
+        LIMIT 5;
+      `;
+        const rows = await database.executar(query);
+        return rows;
+    } catch (error) {
+        console.error('Erro ao buscar dados no modelo:', error);
+        throw error;
+    }
+};
 
 
 module.exports = {
     filme,
     nota,
-    media
+    media,
+    fetchAvaliacoesPorGenero
 };
