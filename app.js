@@ -17,6 +17,7 @@ var app = express();
 
 var usuarioRouter = require("./src/routes/users");
 var avaliacaoRouter = require("./src/routes/avaliacao");
+var dashboardRouter = require("./src/routes/dashboard");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -26,6 +27,7 @@ app.use(cors());
 
 app.use("/usuarios", usuarioRouter);
 app.use("/avaliacao", avaliacaoRouter);
+app.use("/dashboard", dashboardRouter);
 
 app.listen(PORTA_APP, function () {
     console.log(`

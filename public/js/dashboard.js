@@ -6,7 +6,7 @@ if (sessionStorage.ID_USUARIO == null) {
     window.location = "./index.html";
 }
 
-const apimaisAvaliadosURL = '/avaliacao/maisAvaliados';
+const apimaisAvaliadosURL = '/dashboard/maisAvaliados';
 
 async function maisAvaliados() {
     try {
@@ -26,7 +26,7 @@ async function maisAvaliados() {
     }
 }
 
-const apiMelhorAvaliadosURL = '/avaliacao/MelhorAvaliado';
+const apiMelhorAvaliadosURL = '/dashboard/MelhorAvaliado';
 
 async function melhorAvaliados() {
     try {
@@ -46,9 +46,7 @@ async function melhorAvaliados() {
     }
 }
 
-const apiRegiaoQueMaisAvaliouURL = '/avaliacao/RegiaoQueMaisAvaliou';
-
-const apiGeneroURL = '/avaliacao/genero';
+const apiGeneroURL = '/dashboard/genero';
 
 async function fetchGenerosFavoritos() {
     try {
@@ -116,6 +114,98 @@ function renderChart(labels, data) {
     });
 }
 
+const apiLocationURL = '/dashboard/location';
+
+async function existingLocation() {
+    try {
+        const response = await fetch(apiLocationURL);
+
+        if (!response.ok) {
+            throw new Error('Erro ao buscar os dados.');
+        }
+
+        const data = await response.json();
+        console.log(data);
+
+        const countries = Array.from(new Set(data.map(location => location.pais)));
+        const states = Array.from(new Set(data.map(location => location.estado)));
+        const cities = Array.from(new Set(data.map(location => location.cidade)));
+
+        preencherSelect(countries, states, cities);
+
+    } catch (error) {
+        console.error('Erro ao buscar os dados das regiões:', error);
+    }
+}
+
+function preencherSelect(country, state, city) {
+    for (var i = 0; i < city.length; i++) {
+
+        if (country[i] != country[i + 1]) {
+            select_country.innerHTML += `<br><option value="${country[i]}">${country[i]}</option>`;
+        }
+
+        if (state[i] != state[i + 1]) {
+            select_state.innerHTML += `<br><option value="${state[i]}">${state[i]}</option>`;
+        }
+
+        if (city[i] != city[i + 1]) {
+            select_city.innerHTML += `<br><option value="${city[i]}">${city[i]}</option>`;
+        }
+    }
+}
+
+function searchLocation() {  
+    const pais = select_country.value;  
+    const estado = select_state.value;  
+    const cidade = select_city.value;  
+
+    if (pais == "#") {  
+        return alert('Select a country!');  
+    }  
+    
+    if (estado == "#") {  
+        return alert('Select a state!');  
+    }  
+    
+    if (cidade == "#") {  
+        return alert('Select a city!');  
+    }  
+
+    fetch("/dashboard/searchLocation", {  
+        method: "POST",  
+        headers: {  
+            "Content-Type": "application/json",  
+        },  
+        body: JSON.stringify({  
+            paisServer: pais,  
+            estadoServer: estado,  
+            cidadeServer: cidade  
+        }),  
+    })  
+    .then(function (resposta) {  
+        console.log("resposta: ", resposta);  
+        if (resposta.ok) {  
+            return resposta.json();
+        } else {  
+            throw new Error("Cadastro falhou");  
+        }  
+    })  
+    .then(function (data) {  
+        console.log(data);
+
+        const topGenero = data[0].genero; 
+
+        locationSelected.innerHTML = `<h3>${cidade}</h3>  
+                                      <h3>Top Genre: ${topGenero}</h3>`;  
+    })  
+    .catch(function (erro) {  
+        console.error('Erro ao buscar regiões selecionadas:', erro);  
+    });  
+}
+
+
 fetchGenerosFavoritos();
 maisAvaliados();
 melhorAvaliados();
+existingLocation();

@@ -38,9 +38,26 @@
         <div class="cards">
             <div id="mostRated" class="card">Most Rated: </div>
             <div id="bestRated" class="card">Best Rated: </div>
-            <div class="card">Region with the Most Ratings: </div>
         </div>
         <div class="graficoGeneros" id="graficoGeneros"><canvas id="myChart"></canvas></div>
+        <h2>Top genres by location</h2>
+        <div class="buscarRegiao">
+            <select name="country" id="select_country">
+                <option value="#">Country...</option>
+            </select>
+
+            <select name="state" id="select_state">
+                <option value="#">State...</option>
+            </select>
+
+            <select name="city" id="select_city">
+                <option value="#">City...</option>
+            </select>
+
+            <button onclick="searchLocation()">Search</button>
+
+        </div>
+        <div id="locationSelected"></div>
     </div>
 
 </body>

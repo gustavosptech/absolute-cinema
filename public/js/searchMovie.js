@@ -93,6 +93,8 @@ function searchMovie(title) {
                             <div class="movie-director">Director: ${data.Director}</div>
                             <div class="movie-actors">Actors: ${data.Actors}</div>
                             <div class="movie-awards">Awards: ${data.Awards}</div>
+                            <br>
+                            Login to submit a rating!
                         </div>
                     </div>
                 `;

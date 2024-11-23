@@ -7,7 +7,6 @@ body {
 }
 
 .banner {
-    height: 100%;
     position: relative;
     overflow: hidden;
     padding-top: 5%;
@@ -23,7 +22,7 @@ body {
     width: 80%;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .card {
@@ -32,7 +31,7 @@ body {
     background-color: #ffad00;
     color: black;
     border-radius: 50px;
-
+    font-family: Sora;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -46,3 +45,64 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+.banner h2 {
+    margin-top: 100px;
+}
+
+.buscarRegiao {
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 50px;
+}
+
+.buscarRegiao select{
+    border: none;
+    outline: none;
+    font-size: 15px;
+    padding: 10px 20px;
+    width: 26%;
+    border-radius: 5px;
+    background-color: rgba(74, 74, 74, 0.579);
+    backdrop-filter: blur(8px);
+    color: white;
+}
+
+.buscarRegiao select:hover {
+    cursor: pointer;
+}
+
+.buscarRegiao option {
+    background-color: #000304;
+    color: white;
+    border: none;
+}
+
+.buscarRegiao button {
+    width: 80px;
+    font-size: 15px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #d79f17;
+    color: white;
+}
+
+.buscarRegiao button:hover {
+    background-color: #ad7f15;
+    cursor: pointer;
+}
+
+.locationSelected {
+    width: 80%;
+    text-align: center;
+}
+
+.locationSelected h6{
+    margin: 0;
+    font-size: 24px;
+}
+

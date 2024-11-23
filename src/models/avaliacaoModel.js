@@ -99,74 +99,8 @@ async function media(nomeFilme) {
     }
 }
 
-async function fetchAvaliacoesPorGenero() {
-    try {
-        const query = `
-        SELECT 
-            f.genero AS genero, 
-            COUNT(a.idAvaliacao) AS qtd_avaliacoes
-        FROM 
-            filme f
-        LEFT JOIN 
-            avaliacao a ON f.idFilme = a.fkFilme
-        WHERE 
-            a.avaliacao >= 8 
-        GROUP BY 
-            f.genero
-        ORDER BY 
-            qtd_avaliacoes DESC
-        LIMIT 5;
-      `;
-        const rows = await database.executar(query);
-        return rows;
-    } catch (error) {
-        console.error('Erro ao buscar dados no modelo:', error);
-        throw error;
-    }
-};
-
-async function maisAvaliados(req, res) {
-    try {
-        const query = `
-        SELECT f.nome AS Filme, COUNT(a.idAvaliacao) AS TotalAvaliacoes
-        FROM filme f
-        JOIN avaliacao a ON f.idFilme = a.fkFilme
-        GROUP BY f.idFilme
-        ORDER BY TotalAvaliacoes DESC
-        LIMIT 1;
-        `
-        const filmeMaisAvaliado = await database.executar(query);
-        return filmeMaisAvaliado
-    } catch (error) {
-        console.error('Erro ao buscar no modelo:', error);
-        throw error;
-    }
-};
-
-async function MelhorAvaliado(req, res) {
-    try {
-        const query = `
-        SELECT f.nome AS Filme, COUNT(a.idAvaliacao) AS TotalAvaliacoes, AVG(a.avaliacao) AS MediaNotas
-        FROM filme f
-        JOIN avaliacao a ON f.idFilme = a.fkFilme
-        GROUP BY f.idFilme
-        ORDER BY TotalAvaliacoes DESC, MediaNotas DESC
-        LIMIT 1;
-        `
-        const filmeMelhorAvaliado = await database.executar(query);
-        return filmeMelhorAvaliado
-    } catch (error) {
-        console.error('Erro ao buscar no modelo:', error);
-        throw error;
-    }
-};
-
-
 module.exports = {
     filme,
     nota,
-    media,
-    fetchAvaliacoesPorGenero,
-    maisAvaliados,
-    MelhorAvaliado
+    media
 };
