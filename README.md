@@ -4,6 +4,9 @@
 
 ---
 
+![image](https://github.com/user-attachments/assets/171beadc-c575-40ec-a8f6-85a2341862e1)
+
+
 ## Main Features
 
 - **Movie Search**  
@@ -19,6 +22,8 @@
   Suggestions based on users' favorite genres in different regions, supporting both viewers and movie marketing strategies.
 
 ---
+## Home Page
+![image](https://github.com/user-attachments/assets/4eb13c75-8812-4fd7-82c2-8f6fe6d50775)
 
 ## Tech Stack
 
@@ -26,6 +31,16 @@
 - **Backend:** Node.js
 - **Database:** MySQL
 - **Integration:** OMDB API
+
+---
+
+## Dashboard
+![image](https://github.com/user-attachments/assets/d4f80a63-7d86-40e1-a3a9-7159c9cbcd84)
+
+---
+
+## Search Films Page
+![image](https://github.com/user-attachments/assets/7eba4c14-3f8f-427a-8391-8725f0811d28)
 
 ---
 
