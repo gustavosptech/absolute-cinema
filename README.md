@@ -1,80 +1,86 @@
-# 🎬 Absolute Cinema
+# Absolute Cinema
 
-Welcome to **Absolute Cinema**! This project is designed to provide a complete experience for movie lovers. Here, you’ll find information on movies, including ratings, synopses, and more.
+**Absolute Cinema** is a web platform for movie reviews, designed to transform cinema into an educational, inclusive, and interactive experience. Inspired by the philosophical impact of the movie *Good Will Hunting*, the platform leverages technology to connect people through cinema, fostering critical reflection and meaningful cultural connections.
 
-## 📌 Features
+---
 
-- **Movie Search**: Easily find your favorite films.
-- **Movie Details**: Access detailed information, such as synopsis, rating, and cast.
-- **User-Friendly Interface**: Enjoy simple and intuitive navigation for an enhanced experience.
-- **User Reviews**: Post your own reviews for the movies you love.
+## Main Features
 
-## 💻 Technologies Used
+- **Movie Search**  
+  Search bar integrated with the OMDB API, enabling detailed searches by title or keyword, displaying synopsis, cast, genre, and release year.
 
-- [GSAP](https://greensock.com/gsap/) - Smooth, interactive animations
-- [Node.js](https://nodejs.org/) - Fast, scalable back-end framework
-- [Chart.js](https://www.chartjs.org/) - Interactive data visualizations
-- [MySQL](https://www.mysql.com/) - Relational database
+- **Movie Reviews**  
+  Authenticated users can rate movies from 1 to 10, storing their reviews in the database for future analysis.
 
-## 🚀 Installation
+- **Analytical Dashboard**  
+  Includes KPIs such as most reviewed and highest-rated movies (average above 8), along with charts for top-rated genres and geographic analysis of regional preferences.
 
-Follow these steps to set up the project on your local machine:
+- **Personalized Recommendations**  
+  Suggestions based on users' favorite genres in different regions, supporting both viewers and movie marketing strategies.
 
-1. Clone the repository:
+---
+
+## Tech Stack
+
+- **Frontend:** HTML, CSS, JavaScript
+- **Backend:** Node.js
+- **Database:** MySQL
+- **Integration:** OMDB API
+
+---
+
+## How to Run the Project
+
+1. **Clone this repository:**
    ```bash
-   git clone https://github.com/gustavosptech/absolute-cinema.git
+   git clone https://github.com/your-username/absolute-cinema.git
    ```
 
-2. Navigate to the project directory:
+2. **Install dependencies:**
    ```bash
    cd absolute-cinema
-   ```
-
-3. Install dependencies:
-   ```bash
    npm install
    ```
 
-4. Start the server:
+3. **Configure the Database:**
+   - Create a MySQL database and adjust the settings in the `.env` file.
+
+4. **Start the server:**
    ```bash
    npm start
    ```
 
-5. Open the application in your browser:
-   ```
-   http://localhost:3000
-   ```
+5. **Access the application:**
+   Open [http://localhost:3300](http://localhost:3300) in your browser.
 
-## 🤝 Contributing
+---
 
-Contributions are welcome! If you have suggestions or encounter any issues, feel free to open an issue. For direct contributions, follow these steps:
+## Assumptions
 
-1. Fork the repository.
-2. Create a new branch:
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-3. Make your changes and commit:
-   ```bash
-   git commit -m "Add new feature"
-   ```
-4. Push to the remote repository:
-   ```bash
-   git push origin feature/your-feature-name
-   ```
-5. Open a pull request.
+- **Language:** All pages are in English to align with the default language of the OMDB API.
+- **Compatibility:** The system is compatible with modern browsers and mobile devices.
 
-## Repositories that inspired me
+---
+
+## Contribution
+
+1. Fork the repository.  
+2. Create a branch for your feature (`git checkout -b feature/new-feature`).  
+3. Commit your changes (`git commit -m 'Add new feature'`).  
+4. Push to the branch (`git push origin feature/new-feature`).  
+5. Open a Pull Request.
+
+---
+
+## References
+
+- [OMDB API](https://www.omdbapi.com/)  
+- [Node.js](https://nodejs.org/)  
+- [Chart.js](https://www.chartjs.org/)
 - [Parallax Scroll - Lun Dev](https://github.com/HoanghoDev/parallax_scroll)
 - [web-data-viz - SPTech](https://github.com/BandTec/web-data-viz)
 
-## 📜 License
+---
 
-This project is licensed under the [MIT License](LICENSE).
-
-## 📬 Contact
-
-For any questions or suggestions, feel free to reach out:
-- **Email**: gustavo.barbosa@sptech.school
-
-Thank you for using Absolute Cinema! Enjoy the movies! 🎥🍿
+**Author:** Gustavo Oliveira  
+**Institution:** São Paulo Tech School
