@@ -75,7 +75,8 @@ async function location() {
 async function searchLocation(pais, estado, cidade) {
     try {
         const query = `
-        SELECT f.genero, AVG(a.avaliacao) AS media_avaliacao  
+        SELECT f.genero, 
+        AVG(a.avaliacao) AS media_avaliacao  
         FROM endereco e  
         JOIN usuario u ON e.fkUsuario = u.id  
         JOIN avaliacao a ON u.id = a.fkUsuario  

@@ -64,14 +64,15 @@ async function fetchGenerosFavoritos() {
 
         const labels = data.map(item => item.genero);
         const valores = data.map(item => item.qtd_avaliacoes);
+        const date = data.map(item => item.datas_avaliacoes);
 
-        renderChart(labels, valores);
+        renderizarGraficoBarras(labels, valores);
     } catch (error) {
         console.error('Erro ao buscar os dados de gêneros:', error);
     }
 }
 
-function renderChart(labels, data) {
+function renderizarGraficoBarras(labels, data) {
     const ctx = document.getElementById("myChart");
 
     new Chart(ctx, {
@@ -194,8 +195,14 @@ function searchLocation() {
     .then(function (data) {  
         console.log(data);
 
+        if (data.length < 1){
+            locationSelected.innerHTML = `<h3>${cidade}</h3>  
+                                      <h3>No user has rated a movie yet or is not a right place</h3>`;
+            return
+        }
         const topGenero = data[0].genero; 
 
+        
         locationSelected.innerHTML = `<h3>${cidade}</h3>  
                                       <h3>Top Genre: ${topGenero}</h3>`;  
     })  

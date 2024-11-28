@@ -13,12 +13,6 @@ function entrar() {
         // finalizarAguardar();
         return false;
     }
-    else {
-        setInterval(sumirMensagem, 5000)
-    }
-
-    // console.log("FORM LOGIN: ", emailVar);
-    // console.log("FORM SENHA: ", senhaVar);
 
     fetch("/usuarios/autenticar", {
         method: "POST",
@@ -56,9 +50,9 @@ function entrar() {
 
             console.log("There was an error trying to log in!");
 
-            resposta.text().then(texto => {
-                console.error(texto);
-                alert(texto)
+            resposta.text().then(erro => {
+                console.error(erro);
+                alert("Email or password is not valid" + erro) 
             });
         }
 
@@ -68,8 +62,4 @@ function entrar() {
     })
 
     return false;
-}
-
-function sumirMensagem() {
-    cardErro.style.display = "none"
 }

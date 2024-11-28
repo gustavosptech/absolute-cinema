@@ -15,7 +15,7 @@ genero varchar(45)
 );
 
 CREATE TABLE avaliacao (
-idAvaliacao int,
+idAvaliacao int auto_increment,
 fkFilme int,
 primary key (idAvaliacao, fkFilme),
 
@@ -26,4 +26,28 @@ avaliacao int,
 dtAvaliacao date
 );
 
+CREATE TABLE endereco (
+idEndereco int auto_increment,
+fkUsuario int,
+
+primary key (idEndereco, fkUsuario),
+
+constraint fkEnderecoUsuario foreign key (fkUsuario) references usuario(id),
+
+Pais varchar(50),
+Cidade varchar(50),
+Estado varchar(50)
+);
+
 SHOW TABLES;
+
+SELECT * FROM usuario;
+SELECT * FROM filme;
+SELECT * FROM avaliacao;
+SELECT * FROM endereco;
+
+TRUNCATE TABLE endereco;
+
+SELECT idEndereco, pais, estado, cidade FROM endereco WHERE fkUsuario = 7;
+
+SELECT TRUNCATE(avg(avaliacao), 2) FROM avaliacao;

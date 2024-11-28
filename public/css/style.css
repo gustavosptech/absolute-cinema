@@ -214,19 +214,6 @@ body{
     margin: 10px;
 }
 
-.footer {
-    font-family: Sora;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #ffad00;
-}
-
-.footer a{
-    color: #442f00;
-}
-
 
 @media screen and (max-width: 950px){
     .banner h1{

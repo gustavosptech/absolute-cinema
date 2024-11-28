@@ -1,7 +1,7 @@
 var database = require("../database/config")
 
 async function autenticar(email, senha) {
-    console.log("Executando autenticação para:", email, senha);
+    console.log("Executando autenticação para:", email);
 
     var instrucaoSql = `
         SELECT id, nome, email FROM usuario WHERE email = '${email}' AND senha = sha2('${senha}', 256);
@@ -30,13 +30,8 @@ async function autenticar(email, senha) {
     }
 }
 
-
-// Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
-function cadastrar(nome, email, senha) {
-    console.log("ACESSEI O USUARIO CADASTRAR MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", nome, email, senha);
-    
-    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
-    //  e na ordem de inserção dos dados.
+function cadastrar(nome, email) {
+    console.log("Cadastrando usuario:", nome, email);
     var instrucaoSql = `
         INSERT INTO usuario (nome, email, senha) VALUES ('${nome}', '${email}', sha2('${senha}', 256));
     `;
@@ -45,7 +40,7 @@ function cadastrar(nome, email, senha) {
 }
 
 function endereco(pais, estado, cidade, idUsuario){
-    console.log("ACESSEI O USUARIO CADASTRAR MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():", pais, estado, cidade, idUsuario);
+    console.log("Cadastrando endereço:", pais, estado, cidade, idUsuario);
 
     var instrucaoSql = `
         INSERT INTO endereco (pais, estado, cidade, fkUsuario) VALUES ('${pais}', '${estado}', '${cidade}', '${idUsuario}');
