@@ -164,11 +164,9 @@ function searchLocation() {
     if (pais == "#") {  
         return alert('Select a country!');  
     }  
-    
     if (estado == "#") {  
         return alert('Select a state!');  
     }  
-    
     if (cidade == "#") {  
         return alert('Select a city!');  
     }  
@@ -193,23 +191,62 @@ function searchLocation() {
         }  
     })  
     .then(function (data) {  
-        console.log(data);
+        console.log("json da função searchLocation", data);
 
-        if (data.length < 1){
+        // Verificar se há dados
+        if (data.length < 1) {
             locationSelected.innerHTML = `<h3>${cidade}</h3>  
-                                      <h3>No user has rated a movie yet or is not a right place</h3>`;
-            return
+                                          <h3>No user has rated a movie yet or is not a right place</h3>`;
+            return;
         }
-        const topGenero = data[0].genero; 
+
+        const generos = data.map(item => item.genero);
+        const qtdAvaliacoes = data.map(item => item.media_avaliacao);
 
         
-        locationSelected.innerHTML = `<h3>${cidade}</h3>  
-                                      <h3>Top Genre: ${topGenero}</h3>`;  
+        locationSelected.innerHTML = `  <h3>${cidade}</h3>  
+                                        <h3>Top Genre: ${data[0].genero}</h3><br><br>
+                                        <div class="graficoPizza" id="graficoGeneros"><canvas id="pieChart"></canvas></div>`; 
+
+        renderizarGraficoPizza(generos, qtdAvaliacoes);
     })  
     .catch(function (erro) {  
         console.error('Erro ao buscar regiões selecionadas:', erro);  
     });  
 }
+
+function renderizarGraficoPizza(generos, qtdAvaliacoes) {
+    const ctx = document.getElementById("pieChart");
+
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: generos,
+            datasets: [{
+                label: 'Avaliações por Gênero',
+                data: qtdAvaliacoes,
+                backgroundColor: ['#d08e15', '#b35f14', '#3a0f0d', '#923a1a', '#d27a1a'],
+                borderColor: ['#ffffff', '#ffffff', '#ffffff', '#ffffff', '#ffffff'],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    position: 'top',
+                    labels: {
+                        color: 'white',
+                        font: {
+                            size: 14
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
 
 
 fetchGenerosFavoritos();

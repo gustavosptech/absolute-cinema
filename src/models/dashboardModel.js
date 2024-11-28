@@ -84,7 +84,7 @@ async function searchLocation(pais, estado, cidade) {
         WHERE e.Pais = '${pais}' AND e.Estado = '${estado}' AND e.Cidade = '${cidade}'  
         GROUP BY f.genero  
         ORDER BY media_avaliacao DESC  
-        LIMIT 1; 
+        LIMIT 5; 
         `;
 
         const topGenreFromLocation = database.executar(query);
