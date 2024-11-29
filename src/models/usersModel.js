@@ -30,7 +30,7 @@ async function autenticar(email, senha) {
     }
 }
 
-function cadastrar(nome, email) {
+function cadastrar(nome, email, senha) {
     console.log("Cadastrando usuario:", nome, email);
     var instrucaoSql = `
         INSERT INTO usuario (nome, email, senha) VALUES ('${nome}', '${email}', sha2('${senha}', 256));

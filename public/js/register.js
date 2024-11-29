@@ -61,16 +61,13 @@ function cadastrar() {
                 container.innerHTML = "<h4>Success</h4>";
 
                 window.location = "/login.html";
-
-                // limparFormulario(); 
-                // finalizarAguardar();
+                
             } else {
                 throw new Error("Cadastro falhou");
             }
         })
         .catch(function (erro) {
             console.log("#ERRO: ", erro);
-            finalizarAguardar();
         });
 
     return false;
